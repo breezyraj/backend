@@ -10,7 +10,7 @@ CONTAINER_NAME="backend"
 APP_PORT="8080"
 
 echo "Deploying $CONTAINER_NAME (Account: $ACCOUNT_ID, Region: $REGION)"
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_BASE
+aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ECR_BASE
 
 # Start Backend SECOND (proxy depends on it)
 echo "Starting Backend on port 8080..."
